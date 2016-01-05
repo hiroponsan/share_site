@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title></title>
+
+    <!-- Bootstrap -->
+    <link href="assets/stylesheets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+
+
+body {
+  width: 80%
+}
+body {
+  margin:0 auto;
+}
+
+.row {
+  text-align: center;
+}
+
+body {
+  text-align: center;
+}
+
+body{
+  padding-top: 50px;
+}
+
+    </style>
+
+  </head>
+  <body>
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <p></p>
+<%= image_tag @product.image.url(:thumb) %>
+</p>
+
+<p>
+  <strong>Price per day:</strong>
+  <%= @product.price_per_day %>
+</p>
+
+<p>
+  <strong>Minimum rental day:</strong>
+  <%= @product.minimum_rental_day %>
+</p>
+
+<p>
+  <strong>Maximum rental day:</strong>
+  <%= @product.maximum_rental_day %>
+</p>
+
+<p>
+  <strong>Discription:</strong>
+  <%= @product.discription %>
+</p>
+
+<p>
+  <strong>カテゴリ:</strong>
+  <%= @product.category %>
+</p>
+
+<%= link_to 'Edit', edit_product_path(@product), class: "btn btn-danger" %> |
+<%= link_to 'Back', products_path, class: "btn btn-success" %>
+
+
+<% if @sold_out.present? %>
+
+<% else %>
+<h4><%= link_to 'レンタルする', new_product_rental_path(@product), class: "btn btn-warning" %></h4>
+<% end %>
+
+  <% if @sold_out.present? %>
+  <h4><%= @sold_out %></h4>
+  <% end %>
+
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <script>
+
+    <% if @sold_out.present? %>
+    document.getElementById("btn btn-warning").disabled = true; 
+    <% else %>
+    <% end %>
+
+    </script>
+
+
+  </body>
+</html>

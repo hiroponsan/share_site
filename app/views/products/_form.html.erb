@@ -1,0 +1,47 @@
+<%= form_for @product, html: { multipart: true } do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+  <%= f.label :category %><br>
+  <%= f.select :category, [["食料・飲料", "食料・飲料"], ["スポーツ", "スポーツ"], ["ゲーム", "ゲーム"], ["本", "本"], ["CD・DVD", "CD・DVD"], ["パソコン・オフィス用品", "パソコン・オフィス用品"], ["その他", "その他"]],  :prompt => "カテゴリを選択してください" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <div class="field">
+    <%= f.label :price_per_day %><br>
+    <%= f.number_field :price_per_day %>円
+  </div>
+  <div class="field">
+    <%= f.label :minimum_rental_day %><br>
+    <%= f.number_field :minimum_rental_day %>日間
+  </div>
+  <div class="field">
+    <%= f.label :maximum_rental_day %><br>
+    <%= f.number_field :maximum_rental_day %>日間
+  </div>
+  <div class="field">
+    <%= f.label :discription %><br>
+    <%= f.text_area :discription %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

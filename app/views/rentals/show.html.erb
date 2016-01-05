@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @rental.product_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rental.user_id %>
+</p>
+
+<p>
+  <strong>Rental day:</strong>
+  <%= @rental.rental_day %>
+</p>
+
+<%= link_to 'Edit', edit_rental_path(@rental) %> |
+<%= link_to 'Back', product_path(@product) %>

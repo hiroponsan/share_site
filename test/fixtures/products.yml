@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  price_per_day: 1
+  minimum_rental_day: 1
+  maximum_rental_day: 1
+  discription: MyText
+
+two:
+  name: MyString
+  price_per_day: 1
+  minimum_rental_day: 1
+  maximum_rental_day: 1
+  discription: MyText
