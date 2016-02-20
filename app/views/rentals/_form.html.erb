@@ -1,3 +1,12 @@
+<style>
+  
+body {margin: 0 auto;}
+body {text-align: center;}
+
+body {line-height: 25px;}
+
+</style>
+
 <%= form_for([@product, @rental]) do |f| %>
   <% if @rental.errors.any? %>
     <div id="error_explanation">
@@ -14,8 +23,18 @@
   <input type ="hidden" name ="product_id" value="<%= @product.id %>">
   <input type ="hidden" name ="rental_id" value="<%= @rental.id %>">
 
-  <h6>レンタル期間をお選びください</h6>
-  <input type="number" name="rental_day" min="<%= @product.minimum_rental_day %>" max="<%= @product.maximum_rental_day %>" required = "required" placeholder ="<%= @product.minimum_rental_day %>日〜<%= @product.maximum_rental_day %>日以内の間でお選びください" style ="width:400px;"> <br>　
+  <h6>レンタル日数をお選びください</h6>
+
+<% minimum_nu = @product.minimum_rental_day %>
+<% maximum_num = @product.maximum_rental_day %>
+<% minimum_num = minimum_nu - 1 %>
+    
+  <select>
+  <% while minimum_num < maximum_num do %>
+  <% minimum_num += 1 %>
+  <option name ="ental_day" value="<% minimum_num %>"><%= minimum_num %>日間</option>
+  <% end %>
+  </select>
 
     <% if @sold_out.present? %>
     <p><%= @sold_out %></p>
